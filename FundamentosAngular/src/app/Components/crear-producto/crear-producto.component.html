@@ -1,0 +1,37 @@
+<div class="m-5 p-5">
+    <form action="" [formGroup]="productosForm" (ngSubmit)="agregarProducto()">
+        <div class="mb-3">
+            <label class="form-label">Nombre producto</label>
+            <input type="text" class="form-control" formControlName="nombreProducto">
+            <div *ngIf="productosForm.get('nombreProducto')?.hasError('required') && productosForm.get('nombreProducto')?.touched" class="alert alert-danger mt-2" role="alert">
+                El campo es obligatorio!
+              </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Categoria</label>
+            <input type="text" class="form-control" formControlName="categoria">
+            <div *ngIf="productosForm.get('categoria')?.hasError('required') && productosForm.get('categoria')?.touched" class="alert alert-danger mt-2" role="alert">
+                El campo es obligatorio!
+              </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Ubicación</label>
+            <input type="text" class="form-control" formControlName="ubicacion">
+            <div *ngIf="productosForm.get('ubicacion')?.hasError('required') && productosForm.get('ubicacion')?.touched" class="alert alert-danger mt-2" role="alert">
+                El campo es obligatorio!
+              </div>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Precio</label>
+            <input type="number" class="form-control" formControlName="precio">
+            <div *ngIf="productosForm.get('precio')?.hasError('required') && productosForm.get('precio')?.touched" class="alert alert-danger mt-2" role="alert">
+                El campo es obligatorio!
+              </div>
+          </div>
+
+          <button type="submit" [disabled]="productosForm.invalid" class="btn btn-primary">Agregar</button>
+    </form>
+</div>
