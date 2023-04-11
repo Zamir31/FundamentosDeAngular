@@ -1,4 +1,5 @@
 <div class="m-5 p-5">
+  <H3>{{titulo | uppercase}}</H3>
     <form action="" [formGroup]="productosForm" (ngSubmit)="agregarProducto()">
         <div class="mb-3">
             <label class="form-label">Nombre producto</label>
@@ -23,7 +24,7 @@
                 El campo es obligatorio!
               </div>
           </div>
-          
+
           <div class="mb-3">
             <label class="form-label">Precio</label>
             <input type="number" class="form-control" formControlName="precio">
@@ -32,6 +33,10 @@
               </div>
           </div>
 
-          <button type="submit" [disabled]="productosForm.invalid" class="btn btn-primary">Agregar</button>
+          <button (submit)="agregarProducto()" type="submit" [disabled]="productosForm.invalid" class="btn btn-primary">Agregar</button>
     </form>
+
+    <!-- <div *ngIf="verificar == true" class="alert alert-success mt-2" role="alert">
+      Se agrego correctamente!
+    </div> -->
 </div>
